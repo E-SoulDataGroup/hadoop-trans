@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.github.jengelman.gradle.plugins:shadow:2.0.1")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+group = 'com.dianhun.hadoop'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.hadoop:hadoop-client:2.7.3'
+    compile 'joda-time:joda-time:2.9.9'
+    compile 'javax.mail:javax.mail-api:1.6.0'
+    compile 'com.sun.mail:javax.mail:1.6.0'
+    compile 'org.xerial.snappy:snappy-java:1.1.7.1'
+}
+
+shadowJar {
+    baseName = project.name
+    version = '1.0-SNAPSHOT'
+    classifier = null
+    configurations = [project.configurations.compile]
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+build.dependsOn shadowJar
