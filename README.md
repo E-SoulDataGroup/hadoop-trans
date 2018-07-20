@@ -21,7 +21,7 @@ HDFS数据迁移、压缩工具。
     java -cp hadoop-trans-1.0-SNAPSHOT.jar cn.dianhun.hadoop.HDFSMerge -srcDB m3gcn_data_log.db -table tab_zhizun_opr_log -pn par_dt -pp yyyyMM -sp true -s 2017-11-01 -e 2017-11-30
     
     
-## 参数说明，所有参数都为必填
+## 参数说明
     java -cp 启动命令，后面跟随的是入口类
     
     -srcDB 迁出数据库
