@@ -32,7 +32,7 @@ public class SendEmail {
         Authenticator auth = new Authenticator() {
             @Override
             public PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("18258889048@163.com", "qaz123qwe");
+                return new PasswordAuthentication("18258889048@163.com", "xxxxxx");
             }
         };
         Session session = Session.getInstance(props, auth);
